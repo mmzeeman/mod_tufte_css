@@ -1,0 +1,5 @@
+%% -*- mode: erlang -*-
+%% Base dispatch rules for zotonic
+[
+ {tuftecss,     ["tuftecss"], controller_template, [{template, "tuftecss.tpl"}, {ssl, any}]}
+].
