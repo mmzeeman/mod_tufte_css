@@ -11,39 +11,42 @@
 	<meta name="author" content="Maas-Maarten Zeeman" />
 
 	{% all include "_html_head.tpl" %}
-	{% lib 
+	{% lib
                 "css/et-book.css"
                 "css/tufte.css"
+				"css/tufte_nav.css"
 	%}
 	{% block html_head_extra %}{% endblock %}
 </head>
 
 <body class="{% block page_class %}{% endblock %}">
 
-<header>
 {% block navbar %}
-	{% include "_navbar.tpl" %}
+<nav class="sans fullwidth" role="navigation">
+	{% optional include "_tufte_navbar.tpl" %}
+</nav>
 {% endblock %}
-</header>
 
 <article>
 {% block content_area %}
-		{% block content %}
-			{% block above %}
-			{% endblock %}
+	{% block content %}
+		{% block above %}{% endblock %}
 
-		        {% block main %}{% endblock %}
+		{% block main %}{% endblock %}
 
-
-			{% block subnavbar %}
-                        {% optional include "_subnav.tpl" %}
-				{% endblock %}
-			{% block below %}{% endblock %}
+		{% block subnavbar %}
+        	{% optional include "_subnav.tpl" %}
 		{% endblock %}
+
+		{% block below %}{% endblock %}
+	{% endblock %}
 {% endblock %}
 </article>
+
 <footer>
-{% optional include "_footer.tpl" %}
+{% block footer %}
+	{% optional include "_footer.tpl" %}
+{% endblock %}
 </footer>
 
 {% include "_js_include.tpl" %}
