@@ -3,4 +3,4 @@
 
 -mod_title("Tufte CSS Package").
 -mod_description("Tufte CSS package with the et book font").
--mod_prio(1000).
+-mod_prio(540).

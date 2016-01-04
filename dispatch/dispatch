@@ -1,5 +1,30 @@
 %% -*- mode: erlang -*-
 %% Base dispatch rules for zotonic
 [
- {tuftecss,     ["tuftecss"], controller_template, [{template, "tuftecss.tpl"}, {ssl, any}]}
+ {tuftecss,     ["tuftecss"], controller_template, [{template, "tuftecss.tpl"}, {ssl, any}]},
+
+  %% The home page, just shows the "home.tpl" template.
+  {home, [], controller_template, [ {template, "tufte_home.tpl"} ]},
+
+  %% Normal page to show a resource.
+  {page, ["page", id],       controller_page, [ {template, {cat, "tufte_page.tpl"}} ]},
+  {page, ["page", id, slug], controller_page, [ {template, {cat, "tufte_page.tpl"}} ]},
+
+  %% Pages when part of a menu
+  {page, ["page", id, "in-menu", in_menu],       controller_page, [ {template, {cat, "tufte_page.tpl"}} ]},
+  {page, ["page", id, "in-menu", in_menu, slug], controller_page, [ {template, {cat, "tufte_page.tpl"}} ]},
+
+  %% Pages when part of a collection
+  {page, ["page", id, "in-collection", in_collection],       controller_page, [ {template, {cat, "tufte_page.tpl"}} ]},
+  {page, ["page", id, "in-collection", in_collection, slug], controller_page, [ {template, {cat, "tufte_page.tpl"}} ]},
+
+  %% Show the map of an item
+  {map, ["map", id], controller_page, [ {template, {cat, "tufte_map.tpl"}} ]},
+
+  %% Redirect controller for resource of type 'website'
+  {website, ["redirect", id, slug], controller_website_redirect, []},
+
+  %% Simple search page
+  {search, ["search"], controller_template, [ {template, "tufte_search.tpl"} ]}
+
 ].

@@ -22,7 +22,7 @@
 <body class="{% block page_class %}{% endblock %}">
 
 {% block navbar %}
-<nav class="sans fullwidth" role="navigation">
+<nav class="sans uppercase fullwidth" role="navigation">
 	{% optional include "_tufte_navbar.tpl" %}
 </nav>
 {% endblock %}
@@ -35,7 +35,7 @@
 		{% block main %}{% endblock %}
 
 		{% block subnavbar %}
-        	{% optional include "_subnav.tpl" %}
+        	{% optional include "_tufte_subnav.tpl" %}
 		{% endblock %}
 
 		{% block below %}{% endblock %}
@@ -45,7 +45,7 @@
 
 <footer>
 {% block footer %}
-	{% optional include "_footer.tpl" %}
+	{% optional include "_tufte_footer.tpl" %}
 {% endblock %}
 </footer>
 
